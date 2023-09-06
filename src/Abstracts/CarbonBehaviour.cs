@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 /*
  *
@@ -9,7 +9,7 @@ using System;
 
 namespace API.Abstracts;
 
-public abstract class CarbonBehaviour : UnityEngine.MonoBehaviour
+public abstract class CarbonBehaviour : FacepunchBehaviour
 {
 	public CarbonBehaviour()
 	{
