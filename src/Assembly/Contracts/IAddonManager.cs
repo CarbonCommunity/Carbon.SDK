@@ -12,6 +12,8 @@ namespace API.Assembly;
 
 public interface IAddonManager
 {
+	public WatchFolder Watcher { get; }
+
 	public byte[] Read(string file);
 	public IReadOnlyDictionary<Type, string> Loaded { get; }
 	public IReadOnlyDictionary<Type, string> Shared { get; }
@@ -19,5 +21,5 @@ public interface IAddonManager
 
 	//public bool IsLoaded(string file);
 	public void Unload(string file, string requester);
-	public void Reload(string requester);
+	public void Reload(string file, string requester);
 }
