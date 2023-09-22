@@ -14,6 +14,8 @@ namespace Carbon.Client.SDK
 	{
 		Dictionary<Connection, ICarbonClient> Clients { get; }
 
+		void ApplyPatch();
+
 		void OnConnected(Connection connection);
 		void OnDisconnected(Connection connection);
 
