@@ -1,10 +1,11 @@
 ﻿/*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
 
+using System;
 namespace Oxide.Core;
 
 public struct VersionNumber
@@ -22,9 +23,47 @@ public struct VersionNumber
 		Patch = patch;
 	}
 
+	public VersionNumber(string version)
+	{
+		if (string.IsNullOrEmpty(version))
+		{
+			return;
+		}
+
+		var split = version.Split('.');
+
+		for (int i = 0; i < split.Length; i++)
+		{
+			var value = int.Parse(split[i]);
+
+			switch (i)
+			{
+				case 0:
+					Major = value;
+					break;
+
+				case 1:
+					Minor = value;
+					break;
+
+				case 2:
+					Patch = value;
+					break;
+			}
+		}
+
+		Array.Clear(split, 0, split.Length);
+		split = null;
+	}
+
 	public override string ToString()
 	{
 		return $"{Major}.{Minor}.{Patch}";
+	}
+
+	public bool IsValid()
+	{
+		return !(Major == 0 && Minor == 0 && Patch == 0);
 	}
 
 	public static bool operator ==(VersionNumber a, VersionNumber b)

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Facepunch;
 using JetBrains.Annotations;
 using Oxide.Core;
 
 /*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
@@ -26,27 +27,13 @@ public class InfoAttribute : Attribute
 	{
 		this.Title = Title;
 		this.Author = Author;
-		SetVersion(Version);
+		this.Version = new VersionNumber(Version);
 	}
 	public InfoAttribute(string Title, string Author, double Version)
 	{
 		this.Title = Title;
 		this.Author = Author;
-		SetVersion(Version.ToString());
-	}
-
-	private void SetVersion(string version)
-	{
-		var list = (from part in version.Split('.')
-					select (ushort)(ushort.TryParse(part, out var result) ? result : 0)).ToList();
-		while (list.Count < 3) list.Add(0);
-
-		// if (list.Count > 3)
-		// {
-		// 	Debug.LogWarning("Version `" + version + "` is invalid for " + Title + ", should be `major.minor.patch`");
-		// }
-
-		Version = new VersionNumber(list[0], list[1], list[2]);
+		this.Version = new VersionNumber(Version.ToString());
 	}
 }
 
@@ -67,12 +54,16 @@ public class DescriptionAttribute : Attribute
 public class PluginReferenceAttribute : Attribute
 {
 	public string Name { get; set; }
+	public string MinVersion { get; set; }
+	public bool IsRequired { get; set; }
 
 	public FieldInfo Field { get; set; }
 
-	public PluginReferenceAttribute(string name = null)
+	public PluginReferenceAttribute(string name = null, string minVersion = null, bool isRequired = false)
 	{
 		Name = name;
+		MinVersion = minVersion;
+		IsRequired = isRequired;
 	}
 }
 
