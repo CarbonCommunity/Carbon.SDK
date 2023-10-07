@@ -24,7 +24,9 @@ public struct VersionNumber
 	}
 
 	public VersionNumber(string version)
-	{
+	{		
+		Major = Minor = Patch = default;
+
 		if (string.IsNullOrEmpty(version))
 		{
 			return;
