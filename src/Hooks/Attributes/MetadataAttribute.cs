@@ -30,7 +30,7 @@ public class MetadataAttribute : Attribute
 		{ get; }
 
 		public Type Type
-		{ get; }
+		{ get; set; }
 
 		public string TypeString
 		{ get; }
