@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.CodeAnalysis;
+using Carbon.Extensions;
 
 /*
  *
@@ -23,6 +23,16 @@ public class MetadataAttribute : Attribute
 			=> Name = name;
 	}
 
+	[AttributeUsage(AttributeTargets.Class)]
+	public class Assembly : Attribute
+	{
+		public string Name
+		{ get; }
+
+		public Assembly(string name)
+			=> Name = name;
+	}
+
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 	public class Parameter : Attribute
 	{
@@ -30,9 +40,6 @@ public class MetadataAttribute : Attribute
 		{ get; }
 
 		public Type Type
-		{ get; set; }
-
-		public string TypeString
 		{ get; }
 
 		public bool Optional
@@ -43,12 +50,6 @@ public class MetadataAttribute : Attribute
 			Name = name;
 			Type = type;
 			TypeString = type.FullName;
-			Optional = optional;
-		}
-		public Parameter(string name, string type, bool optional = false)
-		{
-			Name = name;
-			TypeString = type;
 			Optional = optional;
 		}
 	}
