@@ -1,8 +1,9 @@
 ﻿using System;
+using Microsoft.CodeAnalysis;
 
 /*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
@@ -31,6 +32,9 @@ public class MetadataAttribute : Attribute
 		public Type Type
 		{ get; }
 
+		public string TypeString
+		{ get; }
+
 		public bool Optional
 		{ get; }
 
@@ -38,6 +42,13 @@ public class MetadataAttribute : Attribute
 		{
 			Name = name;
 			Type = type;
+			TypeString = type.FullName;
+			Optional = optional;
+		}
+		public Parameter(string name, string type, bool optional = false)
+		{
+			Name = name;
+			TypeString = type;
 			Optional = optional;
 		}
 	}
