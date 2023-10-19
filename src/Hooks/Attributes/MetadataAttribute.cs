@@ -1,5 +1,4 @@
 ﻿using System;
-using Carbon.Extensions;
 
 /*
  *
@@ -49,7 +48,6 @@ public class MetadataAttribute : Attribute
 		{
 			Name = name;
 			Type = type;
-			TypeString = type.FullName;
 			Optional = optional;
 		}
 	}
