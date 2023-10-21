@@ -2,7 +2,7 @@
 
 /*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
@@ -19,6 +19,16 @@ public class MetadataAttribute : Attribute
 		{ get; }
 
 		public Category(string name)
+			=> Name = name;
+	}
+
+	[AttributeUsage(AttributeTargets.Class)]
+	public class Assembly : Attribute
+	{
+		public string Name
+		{ get; }
+
+		public Assembly(string name)
 			=> Name = name;
 	}
 
