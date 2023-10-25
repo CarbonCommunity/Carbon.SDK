@@ -25,6 +25,9 @@ public enum CarbonEvent
 	// Extension related
 	ExtensionLoaded, ExtensionUnloaded, ExtensionLoadFailed, ExtensionUnloadFailed,
 
+	// Harmony related
+	HarmonyLoaded, HarmonyLoadFailed,
+
 	// Module related
 	ModuleLoaded, ModuleUnloaded, ModuleLoadFailed, ModuleUnloadFailed,
 
