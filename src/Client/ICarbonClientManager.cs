@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Carbon.Client.Contracts;
 using Network;
 
 /*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
@@ -23,6 +24,8 @@ namespace Carbon.Client.SDK
 		bool IsCarbonClient(Connection connection);
 		ICarbonClient Get(BasePlayer player);
 		ICarbonClient Get(Connection connection);
+
+		void NetworkOldRecoil(bool oldRecoil);
 
 		void DisposeClient(ICarbonClient client);
 	}
