@@ -27,6 +27,9 @@ namespace Carbon.Client.SDK
 
 		#region RPCs
 
+		void CreateLoadingCUI(string content);
+		void DestroyLoadingCUI(string name);
+
 		void SpawnPrefab(string path, Vector3 position, Vector3 rotation, Vector3 scale, bool asynchronous = true);
 		void SpawnPrefab(string path, Vector3 vector, Quaternion quaternion, Vector3 scale, bool asynchronous = true);
 		void DestroyPrefab(string path);
