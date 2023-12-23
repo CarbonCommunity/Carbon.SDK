@@ -15,6 +15,10 @@ namespace Carbon.Client.SDK
 	{
 		Dictionary<Connection, ICarbonClient> Clients { get; }
 
+		void InstallAddons(string[] urls);
+		void InstallAddonsAsync(string[] urls);
+		void UninstallAddons();
+
 		void ApplyPatch();
 
 		void OnConnected(Connection connection);
