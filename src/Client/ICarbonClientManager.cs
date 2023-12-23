@@ -31,6 +31,9 @@ namespace Carbon.Client.SDK
 		void OnConnected(Connection connection);
 		void OnDisconnected(Connection connection);
 
+		void SendRequestsToAllPlayers(bool uninstallAll = true, bool loadingScreen = true);
+		void SendRequestToPlayer(Connection connection, bool uninstallAll = true, bool loadingScreen = true);
+
 		bool IsCarbonClient(BasePlayer player);
 		bool IsCarbonClient(Connection connection);
 		ICarbonClient Get(BasePlayer player);
