@@ -15,6 +15,13 @@ namespace Carbon.Client.SDK
 	{
 		Dictionary<Connection, ICarbonClient> Clients { get; }
 
+		int AddonCount { get; }
+		int AssetCount { get; }
+		int SpawnablePrefabsCount { get; }
+		int PrefabsCount { get; }
+		int RustPrefabsCount { get; }
+		int EntityCount { get; }
+
 		void InstallAddons(string[] urls);
 		void InstallAddonsAsync(string[] urls);
 		void UninstallAddons();
