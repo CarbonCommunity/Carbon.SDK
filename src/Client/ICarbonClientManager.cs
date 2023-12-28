@@ -15,6 +15,8 @@ namespace Carbon.Client.SDK
 	{
 		Dictionary<Connection, ICarbonClient> Clients { get; }
 
+		void Init();
+
 		int AddonCount { get; }
 		int AssetCount { get; }
 		int SpawnablePrefabsCount { get; }

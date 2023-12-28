@@ -18,6 +18,8 @@ namespace Carbon.Client.SDK
 		BasePlayer Player { get; set; }
 		bool HasCarbonClient { get; set; }
 
+		bool IsDownloadingAddons { get; set; }
+
 		void Send(string rpc, IPacket packet = null, bool bypassChecks = false);
 		T Receive<T>(Message message);
 
