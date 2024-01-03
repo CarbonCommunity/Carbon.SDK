@@ -20,7 +20,7 @@ namespace Carbon.Client.SDK
 
 		bool IsDownloadingAddons { get; set; }
 
-		void Send(string rpc, IPacket packet = null, bool bypassChecks = false);
+		void Send(string rpc, IPacket packet = null, bool checks = true);
 		T Receive<T>(Message message);
 
 		bool IsValid();
