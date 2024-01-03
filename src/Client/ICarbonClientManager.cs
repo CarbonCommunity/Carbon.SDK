@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Carbon.Client.Contracts;
+using Carbon.SDK.Client;
 using Network;
 
 /*
@@ -41,7 +42,7 @@ namespace Carbon.Client.SDK
 		ICarbonClient Get(BasePlayer player);
 		ICarbonClient Get(Connection connection);
 
-		void NetworkOldRecoil(bool oldRecoil);
+		void NetworkClientConfiguration(ClientOptions options);
 
 		void DisposeClient(ICarbonClient client);
 	}
