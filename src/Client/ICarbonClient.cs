@@ -18,7 +18,9 @@ namespace Carbon.Client.SDK
 		BasePlayer Player { get; set; }
 		bool HasCarbonClient { get; set; }
 
-		void Send(string rpc, IPacket packet = null, bool bypassChecks = false);
+		bool IsDownloadingAddons { get; set; }
+
+		void Send(string rpc, IPacket packet = null, bool checks = true);
 		T Receive<T>(Message message);
 
 		bool IsValid();
