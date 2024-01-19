@@ -22,6 +22,8 @@ namespace API.Hooks
 
 		void ForceUpdateHooks();
 
+		void Fetch();
+
 		void Subscribe(string hookName, string fileName);
 		void Unsubscribe(string hookName, string fileName);
 
