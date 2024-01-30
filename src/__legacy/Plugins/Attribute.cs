@@ -150,7 +150,7 @@ public class ProtectedCommandAttribute : Attribute
 	}
 }
 
-[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false)]
 [MeansImplicitUse]
 public class CommandVarAttribute : Attribute
 {
