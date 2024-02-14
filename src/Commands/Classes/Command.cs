@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 /*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
@@ -12,6 +13,8 @@ namespace API.Commands;
 
 public class Command : IDisposable
 {
+	public static List<string> Prefixes;
+
 	public enum Types
 	{
 		Generic,

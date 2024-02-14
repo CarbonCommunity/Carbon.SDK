@@ -11,7 +11,7 @@ public interface ICompatManager
 {
 	public ConversionResult AttemptOxideConvert(ref byte[] asm);
 
-	public bool ConvertHarmonyMod(ref byte[] data);
+	public bool ConvertHarmonyMod(ref byte[] data, bool noEntrypoint = false);
 }
 
 public enum ConversionResult

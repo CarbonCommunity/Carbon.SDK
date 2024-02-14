@@ -5,7 +5,7 @@ using UnityEngine;
 
 /*
  *
- * Copyright (c) 2022-2023 Carbon Community 
+ * Copyright (c) 2022-2023 Carbon Community
  * All rights reserved.
  *
  */
@@ -18,7 +18,9 @@ namespace Carbon.Client.SDK
 		BasePlayer Player { get; set; }
 		bool HasCarbonClient { get; set; }
 
-		void Send(string rpc, IPacket packet = null, bool bypassChecks = false);
+		bool IsDownloadingAddons { get; set; }
+
+		void Send(string rpc, IPacket packet = null, bool checks = true);
 		T Receive<T>(Message message);
 
 		bool IsValid();
@@ -27,9 +29,11 @@ namespace Carbon.Client.SDK
 
 		#region RPCs
 
+		void CreateLoadingCUI(string content);
+		void DestroyLoadingCUI(string name);
+
 		void SpawnPrefab(string path, Vector3 position, Vector3 rotation, Vector3 scale, bool asynchronous = true);
 		void SpawnPrefab(string path, Vector3 vector, Quaternion quaternion, Vector3 scale, bool asynchronous = true);
-		void SpawnRustPrefabs(string addon, string asset, bool asynchronous = true);
 		void DestroyPrefab(string path);
 		void DestroyAllPrefabs();
 		void Uninstall(string addon);
