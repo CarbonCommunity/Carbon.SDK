@@ -11,14 +11,6 @@ public class HookStringPool
 	public static Dictionary<string, uint> HookNamePoolString = new();
 	public static Dictionary<uint, string> HookNamePoolInt = new();
 
-	internal static uint ManifestHash(string str)
-	{
-		if (string.IsNullOrEmpty(str))
-			return 0;
-
-		return BitConverter.ToUInt32(new MD5CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(str)), 0);
-	}
-
 	public static uint GetOrAdd(string name)
 	{
 		if (HookNamePoolString.TryGetValue(name, out var hash))
@@ -26,7 +18,7 @@ public class HookStringPool
 			return hash;
 		}
 
-		hash = ManifestHash(name);
+		hash = name.ManifestHash();
 		HookNamePoolString[name] = hash;
 		HookNamePoolInt[hash] = name;
 		return hash;
