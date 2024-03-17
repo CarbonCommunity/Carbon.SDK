@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
 using UnityEngine;
 
 namespace Carbon.Pooling;
@@ -20,6 +23,7 @@ public class HookStringPool
 		HookNamePoolInt[hash] = name;
 		return hash;
 	}
+
 
 	public static string GetOrAdd(uint name)
 	{
