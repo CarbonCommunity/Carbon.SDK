@@ -59,6 +59,7 @@ public class PluginReferenceAttribute : Attribute
 
 	public FieldInfo Field { get; set; }
 
+	public PluginReferenceAttribute() { }
 	public PluginReferenceAttribute(string name = null, string minVersion = null, bool isRequired = false)
 	{
 		Name = name;
