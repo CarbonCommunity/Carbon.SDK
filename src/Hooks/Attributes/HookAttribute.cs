@@ -1,4 +1,5 @@
 ﻿using System;
+using HarmonyLib;
 
 /*
  *
@@ -30,33 +31,38 @@ public class HookAttribute : Attribute
 		public Type[] MethodArgs
 		{ get; }
 
+		public MethodType MethodType
+		{ get; }
+
 		/// <summary>
 		/// This should be the most used patch declaration decorator.
 		/// Use one of the other only for specific purposes.
 		/// </summary>
-		public Patch(string name, string fullName, Type target, string method, Type[] args) : this(name, fullName, target, method)
+		public Patch(string name, string fullName, Type target, string method, Type[] args, MethodType type = MethodType.Normal) : this(name, fullName, target, method, type)
 			=> MethodArgs = args;
 
 		/// <summary>
 		/// Short version of the standard patch declaration decorator.
 		/// Use one of the other only for specific purposes.
 		/// </summary>
-		public Patch(string name, string fullName, Type target, string method)
+		public Patch(string name, string fullName, Type target, string method, MethodType type = MethodType.Normal)
 		{
 			FullName = fullName;
 			Method = method;
 			Name = name;
 			Target = target;
+			MethodType = type;
 		}
 
 		/// <summary>
 		/// To be used to facilitate patching of generic methods
 		/// </summary>
-		public Patch(string name, string fullName, Type target)
+		public Patch(string name, string fullName, Type target, MethodType type = MethodType.Normal)
 		{
 			Name = name;
 			Target = target;
 			FullName = fullName;
+			MethodType = type;
 		}
 	}
 
