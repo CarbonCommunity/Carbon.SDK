@@ -38,14 +38,24 @@ public class HookAttribute : Attribute
 		/// This should be the most used patch declaration decorator.
 		/// Use one of the other only for specific purposes.
 		/// </summary>
-		public Patch(string name, string fullName, Type target, string method, Type[] args, MethodType type = MethodType.Normal) : this(name, fullName, target, method, type)
+		public Patch(string name, string fullName, Type target, string method, Type[] args) : this(name, fullName, target, method, MethodType.Normal)
+			=> MethodArgs = args;
+		public Patch(string name, string fullName, Type target, string method, Type[] args, MethodType type) : this(name, fullName, target, method, type)
 			=> MethodArgs = args;
 
 		/// <summary>
 		/// Short version of the standard patch declaration decorator.
 		/// Use one of the other only for specific purposes.
 		/// </summary>
-		public Patch(string name, string fullName, Type target, string method, MethodType type = MethodType.Normal)
+		public Patch(string name, string fullName, Type target, string method)
+		{
+			FullName = fullName;
+			Method = method;
+			Name = name;
+			Target = target;
+			MethodType = MethodType.Normal;
+		}
+		public Patch(string name, string fullName, Type target, string method, MethodType type)
 		{
 			FullName = fullName;
 			Method = method;
@@ -57,7 +67,14 @@ public class HookAttribute : Attribute
 		/// <summary>
 		/// To be used to facilitate patching of generic methods
 		/// </summary>
-		public Patch(string name, string fullName, Type target, MethodType type = MethodType.Normal)
+		public Patch(string name, string fullName, Type target)
+		{
+			Name = name;
+			Target = target;
+			FullName = fullName;
+			MethodType = MethodType.Normal;
+		}
+		public Patch(string name, string fullName, Type target, MethodType type)
 		{
 			Name = name;
 			Target = target;
