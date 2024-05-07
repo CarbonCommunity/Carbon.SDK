@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 /*
@@ -13,7 +14,18 @@ namespace API.Commands;
 
 public class Command : IDisposable
 {
-	public static List<string> Prefixes;
+	public static List<Prefix> Prefixes;
+
+	public static Prefix FindPrefix(string command)
+	{
+		return Prefixes.FirstOrDefault(x => x.Value.Equals(command, StringComparison.OrdinalIgnoreCase));
+	}
+
+	public static bool HasPrefix(string command, out Prefix prefix)
+	{
+		prefix = FindPrefix(command);
+		return prefix != null;
+	}
 
 	public enum Types
 	{
@@ -81,6 +93,14 @@ public class Command : IDisposable
 		Callback = null;
 		CanExecute = null;
 		RustCommand = null;
+	}
+
+	public class Prefix
+	{
+		public string Value;
+
+		public bool PrintToChat;
+		public bool PrintToConsole;
 	}
 
 	public class Args : IDisposable
