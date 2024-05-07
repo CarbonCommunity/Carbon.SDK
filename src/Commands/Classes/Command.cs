@@ -101,6 +101,8 @@ public class Command : IDisposable
 
 		public bool PrintToChat;
 		public bool PrintToConsole;
+
+		public int SuggestionAuthLevel = 2;
 	}
 
 	public class Args : IDisposable
