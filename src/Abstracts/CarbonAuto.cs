@@ -15,7 +15,7 @@ public abstract class CarbonAuto
 	{
 
 	}
-	public virtual bool IsChanged()
+	public virtual bool IsForceModded()
 	{
 		return false;
 	}

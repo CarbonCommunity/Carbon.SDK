@@ -11,6 +11,8 @@ namespace API.Assembly;
 
 public class WatchFolder
 {
+	public bool InitialEvent = true;
+
 	public bool IncludeSubFolders { get; set; }
 	public FileSystemWatcher Handler { get; set; }
 	public string Directory { get; set; }

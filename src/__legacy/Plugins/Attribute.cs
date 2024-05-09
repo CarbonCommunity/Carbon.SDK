@@ -158,18 +158,15 @@ public class CommandVarAttribute : Attribute
 	public string Name { get; }
 	public string Help { get; }
 	public bool Protected { get; set; }
-	public bool Saved { get; }
 
-	public CommandVarAttribute(string name, string help = null, bool saved = false)
+	public CommandVarAttribute(string name, string help = null)
 	{
 		Name = name;
-		Saved = saved;
 		Help = help;
 	}
-	public CommandVarAttribute(string name, bool @protected, string help = null, bool save = false)
+	public CommandVarAttribute(string name, bool @protected, string help = null)
 	{
 		Name = name;
-		Saved = save;
 		Help = help;
 		Protected = @protected;
 	}
