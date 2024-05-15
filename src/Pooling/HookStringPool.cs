@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
-using UnityEngine;
 
 namespace Carbon.Pooling;
 
@@ -18,7 +17,7 @@ public class HookStringPool
 			return hash;
 		}
 
-		hash = name.ManifestHash();
+		hash = ManifestHash(name);
 		HookNamePoolString[name] = hash;
 		HookNamePoolInt[hash] = name;
 		return hash;
@@ -27,11 +26,11 @@ public class HookStringPool
 
 	public static string GetOrAdd(uint name)
 	{
-		if (HookNamePoolInt.TryGetValue(name, out var hash))
-		{
-			return hash;
-		}
+		return HookNamePoolInt.TryGetValue(name, out var hash) ? hash : string.Empty;
+	}
 
-		return string.Empty;
+	private static uint ManifestHash(string str)
+	{
+		return string.IsNullOrEmpty(str) ? 0 : BitConverter.ToUInt32(new MD5CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(str)), 0);
 	}
 }
