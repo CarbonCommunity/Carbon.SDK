@@ -13,7 +13,7 @@ namespace API.Assembly;
 public interface IAssemblyManager
 {
 	public IAddonManager Components { get; }
-	public IAddonManager Extensions { get; }
+	public IExtensionManager Extensions { get; }
 	public IAddonManager Hooks { get; }
 	public IAddonManager Modules { get; }
 
