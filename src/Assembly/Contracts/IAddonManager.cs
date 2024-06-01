@@ -19,7 +19,5 @@ public interface IAddonManager
 	public IReadOnlyDictionary<Type, string> Shared { get; }
 	public System.Reflection.Assembly Load(string file, string requester);
 
-	//public bool IsLoaded(string file);
 	public void Unload(string file, string requester);
-	public void Reload(string file, string requester);
 }
