@@ -9,6 +9,6 @@
 
 namespace API.Assembly;
 
-public interface ICarbonModule : ICarbonAddon
+public interface IModulePackage : ICarbonAddon
 {
 }
