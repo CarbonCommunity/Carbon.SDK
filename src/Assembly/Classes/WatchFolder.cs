@@ -31,9 +31,6 @@ public class WatchFolder
 	{
 		foreach (string file in System.IO.Directory.GetFiles(Handler.Path, Handler.Filter))
 		{
-			FileSystemEventArgs args = new FileSystemEventArgs(
-				type, Handler.Path, Path.GetFileName(file));
-
 			switch (type)
 			{
 				case WatcherChangeTypes.Created:
