@@ -21,7 +21,6 @@ namespace API.Hooks
 		IEnumerable<IHook> InstalledDynamicHooks { get; }
 
 		void ForceUpdateHooks();
-
 		void Fetch();
 
 		void Subscribe(string hookName, string fileName);

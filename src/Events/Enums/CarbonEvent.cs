@@ -17,7 +17,7 @@ public enum CarbonEvent
 	CarbonStartup, CarbonStartupComplete, CarbonShutdown, CarbonShutdownComplete, CarbonShutdownFailed,
 
 	// Hook related
-	HooksInstalled, HookValidatorRefreshed, InitialHooksInstalled, HookFetchStart, HookFetchEnd,
+	HooksInstalled, HookValidatorRefreshed, HookFetchStart, HookFetchEnd, HooksPatchedFullFrame,
 
 	// Component related
 	ComponentLoaded, ComponentUnloaded, ComponentLoadFailed, ComponentUnloadFailed,
