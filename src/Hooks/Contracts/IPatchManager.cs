@@ -25,10 +25,12 @@ namespace API.Hooks
 
 		void Subscribe(string hookName, string fileName);
 		void Unsubscribe(string hookName, string fileName);
+		void UnsubscribeAll(string hookName);
 
 		bool IsHook(string hookName);
 		bool IsHookLoaded(string hookName);
 		int GetHookSubscriberCount(string identifier);
+		IEnumerable<string> GetHookSubscribers(string identifier);
 
 		public void LoadHooksFromType(Type type);
 	}
