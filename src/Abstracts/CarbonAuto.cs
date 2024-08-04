@@ -1,30 +1,11 @@
-﻿/*
- *
- * Copyright (c) 2022-2024 Carbon Community
- * All rights reserved.
- *
- */
-
-namespace API.Abstracts;
+﻿namespace API.Abstracts;
 
 public abstract class CarbonAuto
 {
 	public static CarbonAuto Singleton;
 
-	public virtual void Refresh()
-	{
-
-	}
-	public virtual bool IsForceModded()
-	{
-		return false;
-	}
-	public virtual void Save()
-	{
-
-	}
-	public virtual void Load()
-	{
-
-	}
+	public abstract bool IsForceModded();
+	public abstract void Refresh();
+	public abstract void Save();
+	public abstract void Load();
 }

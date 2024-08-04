@@ -1,14 +1,3 @@
-﻿using System;
+﻿namespace API.Assembly;
 
-/*
- *
- * Copyright (c) 2022-2024 Carbon Community
- * All rights reserved.
- *
- */
-
-namespace API.Assembly;
-
-public interface IModulePackage : ICarbonAddon
-{
-}
+public interface IModulePackage : ICarbonAddon;
