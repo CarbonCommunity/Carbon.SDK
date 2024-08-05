@@ -1,11 +1,4 @@
-﻿/*
- *
- * Copyright (c) 2022-2024 Carbon Community
- * All rights reserved.
- *
- */
-
-namespace API.Analytics;
+﻿namespace API.Analytics;
 
 public struct Identity
 {
