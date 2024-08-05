@@ -1,12 +1,5 @@
 ﻿using System.IO;
 
-/*
- *
- * Copyright (c) 2022-2024 Carbon Community
- * All rights reserved.
- *
- */
-
 namespace API.Assembly;
 
 public class WatchFolder

@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-/*
- *
- * Copyright (c) 2022-2023 Carbon Community
- * All rights reserved.
- *
- */
-
 namespace API.Hooks
 {
 	public interface IPatchManager
@@ -21,15 +14,16 @@ namespace API.Hooks
 		IEnumerable<IHook> InstalledDynamicHooks { get; }
 
 		void ForceUpdateHooks();
-
 		void Fetch();
 
 		void Subscribe(string hookName, string fileName);
 		void Unsubscribe(string hookName, string fileName);
+		void UnsubscribeAll(string hookName);
 
 		bool IsHook(string hookName);
 		bool IsHookLoaded(string hookName);
 		int GetHookSubscriberCount(string identifier);
+		IEnumerable<string> GetHookSubscribers(string identifier);
 
 		public void LoadHooksFromType(Type type);
 	}
