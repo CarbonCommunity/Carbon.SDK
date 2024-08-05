@@ -1,11 +1,5 @@
-﻿/*
- *
- * Copyright (c) 2022-2023 Carbon Community
- * All rights reserved.
- *
- */
+﻿using System;
 
-using System;
 namespace Oxide.Core;
 
 public struct VersionNumber
@@ -24,7 +18,7 @@ public struct VersionNumber
 	}
 
 	public VersionNumber(string version)
-	{		
+	{
 		Major = Minor = Patch = default;
 
 		if (string.IsNullOrEmpty(version))

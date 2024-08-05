@@ -1,11 +1,4 @@
-﻿/*
- *
- * Copyright (c) 2022-2023 Carbon Community
- * All rights reserved.
- *
- */
-
-namespace API.Events;
+﻿namespace API.Events;
 
 public enum CarbonEvent
 {
@@ -17,7 +10,7 @@ public enum CarbonEvent
 	CarbonStartup, CarbonStartupComplete, CarbonShutdown, CarbonShutdownComplete, CarbonShutdownFailed,
 
 	// Hook related
-	HooksInstalled, HookValidatorRefreshed, InitialHooksInstalled, HookFetchStart, HookFetchEnd,
+	HooksInstalled, HookValidatorRefreshed, HookFetchStart, HookFetchEnd, HooksPatchedFullFrame,
 
 	// Component related
 	ComponentLoaded, ComponentUnloaded, ComponentLoadFailed, ComponentUnloadFailed,
