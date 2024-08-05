@@ -1,11 +1,4 @@
-﻿/*
- *
- * Copyright (c) 2022-2024 Carbon Community
- * All rights reserved.
- *
- */
-
-namespace API.Permissions;
+﻿namespace API.Permissions;
 
 public interface IGroupManagement
 {
