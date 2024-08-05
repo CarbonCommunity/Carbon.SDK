@@ -8,8 +8,5 @@ public interface ILogger
 	/// Outputs the message to the game's console with user selected severity level.
 	/// By default the severity will be 'NOTICE'.
 	/// </summary>
-	/// <param name="message"></param>
-	/// <param name="severity"></param>
-	/// <param name="exception"></param>
 	public void Console(string message, Severity severity = Severity.Notice, Exception exception = null);
 }
