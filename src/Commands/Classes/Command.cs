@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Facepunch;
 using Newtonsoft.Json;
 
 namespace API.Commands;
@@ -98,7 +99,7 @@ public class Command : IDisposable
 		public int SuggestionAuthLevel = 2;
 	}
 
-	public class Args : IDisposable
+	public class Args : Pool.IPooled
 	{
 		public Types Type { get; set; }
 		public string[] Arguments { get; set; }
@@ -123,7 +124,7 @@ public class Command : IDisposable
 			Reply = JsonConvert.SerializeObject(message, Formatting.Indented);
 		}
 
-		public virtual void Dispose()
+		public virtual void EnterPool()
 		{
 			Type = Types.Generic;
 			Reply = null;
@@ -134,6 +135,10 @@ public class Command : IDisposable
 				Array.Clear(Arguments, 0, Arguments.Length);
 				Arguments = null;
 			}
+		}
+
+		public virtual void LeavePool()
+		{
 		}
 	}
 
@@ -195,9 +200,10 @@ public class PlayerArgs : Command.Args
 		return (value = (T)Player) != null;
 	}
 
-	public override void Dispose()
+	public override void EnterPool()
 	{
 		Player = null;
-		base.Dispose();
+
+		base.EnterPool();
 	}
 }
