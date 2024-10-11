@@ -8,9 +8,18 @@ public class ModuleEventArgs : CarbonEventArgs
 	public IModulePackage ModulePackage;
 	public IEnumerable<object> Data;
 
-	public ModuleEventArgs(object payload, IModulePackage modulePackage, IEnumerable<object> data) : base(payload)
+	public void Init(object payload, IModulePackage modulePackage, IEnumerable<object> data)
 	{
+		Init(payload);
 		ModulePackage = modulePackage;
 		Data = data;
+	}
+
+	public override void EnterPool()
+	{
+		base.EnterPool();
+
+		ModulePackage = null;
+		Data = null;
 	}
 }
