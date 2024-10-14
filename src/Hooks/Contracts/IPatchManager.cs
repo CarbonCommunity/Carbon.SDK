@@ -22,8 +22,9 @@ namespace API.Hooks
 
 		bool IsHook(string hookName);
 		bool IsHookLoaded(string hookName);
-		int GetHookSubscriberCount(string identifier);
-		IEnumerable<string> GetHookSubscribers(string identifier);
+		int GetHookSubscriberCount(string hookName);
+		IEnumerable<string> GetHookSubscribers(string hookName);
+		bool AnySubscribers(string hookName);
 
 		public void LoadHooksFromType(Type type);
 	}
