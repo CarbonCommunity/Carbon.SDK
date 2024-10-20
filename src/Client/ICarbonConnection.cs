@@ -6,19 +6,22 @@ namespace Carbon.Client.SDK;
 
 public interface ICarbonConnection
 {
-	Network.Connection Connection { get; set; }
+	string Ip { get; set; }
+	ulong UserId { get; set; }
+	string Username { get; set; }
+	ulong Connection { get; set; }
+
 	BasePlayer Player { get; set; }
 	TcpClient Net { get; set; }
 
 	NetworkStream Stream { get; set; }
 
 	bool IsCarbonConnected { get; }
-	bool IsConnected { get; }
 	bool IsDownloadingAddons { get; set; }
 	bool HasData { get; }
 
 	bool IsValid();
-	void OnConnected();
+	void OnConnected(ulong userid, string username, string ip);
 	void OnDisconnect();
 	ValueTask<bool> ConnectCarbon();
 	void DisconnectCarbon(string reason);

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Network;
+﻿using Network;
 
 namespace Carbon.Client.SDK;
 
@@ -27,6 +26,9 @@ public interface ICarbonClientManager
 	bool IsCarbonClient(Connection connection);
 	ICarbonConnection Get(BasePlayer player);
 	ICarbonConnection Get(Connection connection);
+
+	void SendRequestsToAllPlayers(bool uninstallAll = true);
+	void SendRequestToPlayer(Network.Connection connection, bool uninstallAll = true);
 
 	void DisposeClient(ICarbonConnection client);
 }
