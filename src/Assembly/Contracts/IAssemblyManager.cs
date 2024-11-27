@@ -7,6 +7,7 @@ public interface IAssemblyManager
 {
 	public IAddonManager Components { get; }
 	public IExtensionManager Extensions { get; }
+	public IHarmonyModManager HarmonyMods { get; }
 	public IAddonManager Hooks { get; }
 	public IAddonManager Modules { get; }
 
