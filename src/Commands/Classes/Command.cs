@@ -12,7 +12,17 @@ public class Command : IDisposable
 
 	public static Prefix FindPrefix(string command)
 	{
-		return Prefixes.FirstOrDefault(x => x.Value.Equals(command, StringComparison.OrdinalIgnoreCase));
+		foreach (var prefix in Prefixes)
+		{
+			if (!prefix.Value.Equals(command, StringComparison.OrdinalIgnoreCase))
+			{
+				continue;
+			}
+
+			return prefix;
+		}
+
+		return null;
 	}
 
 	public static bool HasPrefix(string command, out Prefix prefix)
