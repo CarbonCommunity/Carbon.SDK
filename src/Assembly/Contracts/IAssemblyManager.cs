@@ -15,6 +15,8 @@ public interface IAssemblyManager
 	public IAddonManager Plugins { get; }
 #endif
 
+	void InstallHarmonyMods();
+
 	public byte[] Read(string file, string[] directories = null);
 	public IReadOnlyList<string> RefBlacklist { get; }
 	public IReadOnlyList<string> RefWhitelist { get; }
