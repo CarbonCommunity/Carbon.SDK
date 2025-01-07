@@ -7,15 +7,12 @@ public interface IAssemblyManager
 {
 	public IAddonManager Components { get; }
 	public IExtensionManager Extensions { get; }
-	public IHarmonyModManager HarmonyMods { get; }
 	public IAddonManager Hooks { get; }
 	public IAddonManager Modules { get; }
 
 #if EXPERIMENTAL
 	public IAddonManager Plugins { get; }
 #endif
-
-	void InstallHarmonyMods();
 
 	public byte[] Read(string file, string[] directories = null);
 	public IReadOnlyList<string> RefBlacklist { get; }
