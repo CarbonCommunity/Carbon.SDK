@@ -11,8 +11,7 @@ public class MetadataAttribute : Attribute
 		public string Name
 		{ get; }
 
-		public Category(string name)
-			=> Name = name;
+		public Category(string name) => Name = name;
 	}
 
 	[AttributeUsage(AttributeTargets.Class)]
@@ -21,8 +20,7 @@ public class MetadataAttribute : Attribute
 		public string Name
 		{ get; }
 
-		public Assembly(string name)
-			=> Name = name;
+		public Assembly(string name) => Name = name;
 	}
 
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
@@ -51,8 +49,7 @@ public class MetadataAttribute : Attribute
 		public string Name
 		{ get; }
 
-		public Info(string name)
-			=> Name = name;
+		public Info(string name) => Name = name;
 	}
 
 	[AttributeUsage(AttributeTargets.Class)]
@@ -61,7 +58,9 @@ public class MetadataAttribute : Attribute
 		public Type Type
 		{ get; }
 
-		public Return(Type type)
-			=> Type = type;
+		public Return(Type type) => Type = type;
 	}
+
+	[AttributeUsage(AttributeTargets.Class)]
+	public class OxideCompatible : Attribute;
 }
