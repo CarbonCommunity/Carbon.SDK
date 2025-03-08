@@ -93,12 +93,4 @@ public class HookAttribute : Attribute
 
 		public Dependencies(string[] value) => Value = value;
 	}
-
-	[AttributeUsage(AttributeTargets.Class)]
-	public class Checksum : Attribute
-	{
-		public string Value { get; }
-
-		public Checksum(string value) => Value = value;
-	}
 }
