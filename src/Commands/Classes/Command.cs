@@ -139,12 +139,7 @@ public class Command : IDisposable
 			Type = Types.Generic;
 			Reply = null;
 			Token = null;
-
-			if (Arguments != null)
-			{
-				Array.Clear(Arguments, 0, Arguments.Length);
-				Arguments = null;
-			}
+			Arguments = null;
 		}
 
 		public virtual void LeavePool()
@@ -212,8 +207,7 @@ public class PlayerArgs : Command.Args
 
 	public override void EnterPool()
 	{
-		Player = null;
-
 		base.EnterPool();
+		Player = null;
 	}
 }
