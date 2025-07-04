@@ -29,16 +29,23 @@ public class MetadataAttribute : Attribute
 		public string Name
 		{ get; }
 
-		public Type Type
+		public string Type
 		{ get; }
 
 		public bool Optional
 		{ get; }
 
-		public Parameter(string name, Type type, bool optional = false)
+		public Parameter(string name, string type, bool optional = false)
 		{
 			Name = name;
 			Type = type;
+			Optional = optional;
+		}
+
+		public Parameter(string name, Type type, bool optional = false)
+		{
+			Name = name;
+			Type = type.FullName;
 			Optional = optional;
 		}
 	}
