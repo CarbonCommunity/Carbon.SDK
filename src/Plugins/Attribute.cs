@@ -223,13 +223,6 @@ public class CooldownAttribute : Attribute
 	}
 }
 
-[AttributeUsage(AttributeTargets.Class)]
-[MeansImplicitUse]
-public class HotloadableAttribute : Attribute
-{
-
-}
-
 [AttributeUsage(AttributeTargets.All)]
 [MeansImplicitUse]
 public class ConditionalAttribute : Attribute
