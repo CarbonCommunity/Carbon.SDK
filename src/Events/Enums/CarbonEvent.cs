@@ -25,7 +25,7 @@ public enum CarbonEvent
 	ModuleLoaded, ModuleUnloaded, ModuleLoadFailed, ModuleUnloadFailed,
 
 	// Plugin related
-	AllPluginsLoaded, PluginPreload, PluginLoaded, PluginUnloaded,
+	AllPluginsLoaded, AllPluginsInitialized, PluginPreload, PluginLoaded, PluginUnloaded,
 
 	// Things that look like hooks
 	OnServerInitialized, OnServerSave
