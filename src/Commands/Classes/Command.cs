@@ -166,6 +166,7 @@ public class Command : IDisposable
 		public string[] Permissions { get; set; }
 		public string[] Groups { get; set; }
 		public int Cooldown { get; set; }
+		public bool DoCooldownPenalty { get; set; }
 	}
 
 	public bool HasFlag(CommandFlags flag)

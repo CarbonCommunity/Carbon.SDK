@@ -211,15 +211,41 @@ public class AuthLevelAttribute : Attribute
 	}
 }
 
+/// <summary>
+///     Specifies a cooldown period for a command, preventing it from being executed again too quickly.
+/// </summary>
 [AttributeUsage(AttributeTargets.Method)]
 [MeansImplicitUse]
 public class CooldownAttribute : Attribute
 {
-	public int Miliseconds { get; } = 0;
+	/// <summary>
+	///     Gets the base duration of the cooldown in milliseconds.
+	/// </summary>
+	public int Miliseconds { get; }
 
-	public CooldownAttribute(int miliseconds)
+	/// <summary>
+	///     Gets a value indicating whether the cooldown duration should increase with successive calls made during the cooldown period.
+	/// </summary>
+	/// <remarks>
+	///     If set to <see langword="true" />, any calls made while the method is on cooldown will increase the remaining cooldown time by a
+	///     multiple of the base <see cref="Miliseconds" /> value. This creates a penalty for spamming the method.
+	///     If <see langword="false" />, the cooldown period is fixed.
+	/// </remarks>
+	public bool DoCooldownPenalty { get; }
+
+	/// <summary>
+	///     Initializes a new instance of the <see cref="CooldownAttribute" /> class.
+	/// </summary>
+	/// <param name="miliseconds">The base cooldown period in milliseconds.</param>
+	/// <param name="doCooldownPenalty">
+	///     When set to <see langword="true" />, this enables a cooldown penalty for repeated calls.
+	///     If the associated method is called again while it is already on cooldown, the remaining wait time will be extended.
+	///     This is useful for preventing spam. If <see langword="false" />, the cooldown duration is fixed and will not increase.
+	/// </param>
+	public CooldownAttribute(int miliseconds, bool doCooldownPenalty = false)
 	{
 		Miliseconds = miliseconds;
+		DoCooldownPenalty = doCooldownPenalty;
 	}
 }
 
