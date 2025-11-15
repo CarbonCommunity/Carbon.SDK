@@ -249,15 +249,18 @@ public class CooldownAttribute : Attribute
 	}
 }
 
-[AttributeUsage(AttributeTargets.All)]
-[MeansImplicitUse]
-public class ConditionalAttribute : Attribute
+namespace Carbon
 {
-	public string Symbol { get;set; }
-
-	public ConditionalAttribute() { }
-	public ConditionalAttribute(string symbol)
+	[AttributeUsage(AttributeTargets.All)]
+	[MeansImplicitUse]
+	public class ConditionalAttribute : Attribute
 	{
-		Symbol = symbol;
+		public string Symbol { get;set; }
+
+		public ConditionalAttribute() { }
+		public ConditionalAttribute(string symbol)
+		{
+			Symbol = symbol;
+		}
 	}
 }
