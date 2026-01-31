@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace API.Contracts;
@@ -6,13 +7,25 @@ namespace API.Contracts;
 public interface IDownloadManager
 {
 	/// <summary>
-	/// Downloads the contents of the provided URL as an array of bytes.
+	///     Downloads the contents of the provided URL as an array of bytes.
 	/// </summary>
-	public Task<byte[]> Download(string url);
+	Task<byte[]> Download(string url);
 
 	/// <summary>
-	/// Adds a download request for the provided URL to the download queue and
-	/// triggers the specified callback when the task completes.
+	///     Downloads the contents of the provided URL as an array of bytes and
+	///     allows cancellation of the request.
 	/// </summary>
-	public void DownloadAsync(string url, Action<string, byte[]> callback);
+	Task<byte[]> Download(string url, CancellationToken token);
+
+	/// <summary>
+	///     Downloads the contents of the provided URL as an array of bytes and
+	///     allows cancellation of the request with optional error suppression.
+	/// </summary>
+	Task<byte[]> Download(string url, CancellationToken token, bool suppressErrors);
+
+	/// <summary>
+	///     Adds a download request for the provided URL to the download queue and
+	///     triggers the specified callback when the task completes.
+	/// </summary>
+	void DownloadAsync(string url, Action<string, byte[]> callback);
 }
